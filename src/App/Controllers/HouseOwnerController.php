@@ -124,7 +124,7 @@ class HouseOwnerController implements HouseOwnerInterface
         try{
             $stmt = $conn->prepare("SELECT * FROM house_owners WHERE 1");
 
-            if($stmt->execute() && $stmt->rowCount() == 1){
+            if($stmt->execute() && $stmt->rowCount() > 0){
                 return $stmt->fetchAll();
             }else{
                 return [

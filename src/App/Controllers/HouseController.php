@@ -139,7 +139,7 @@ class HouseController implements HouseInterface
         try{
             $stmt = $conn->prepare("SELECT * FROM houses WHERE 1");
 
-            if($stmt->execute() && $stmt->rowCount() == 1){
+            if($stmt->execute() && $stmt->rowCount() > 0){
                 return $stmt->fetchAll();
             }else{
                 return [

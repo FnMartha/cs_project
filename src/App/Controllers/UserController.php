@@ -83,19 +83,19 @@ class UserController implements UserInterface
     {
         $db = new DB();
         $conn = $db->connect();
-        try{
+        try {
             $stmt = $conn->prepare("SELECT * FROM users WHERE id:=id");
             $stmt->bindParam(":id", $id);
-            if($stmt->execute() && $stmt->rowCount() == 1){
+            if ($stmt->execute() && $stmt->rowCount() == 1) {
                 return $stmt->fetchAll();
-            }else{
+            } else {
                 return [
-                    "error"=> "No Data found"
+                    "error" => "No Data found"
                 ];
             }
-        }catch (\PDOException $e){
+        } catch (\PDOException $e) {
             return [
-                "error"=>$e->getMessage()
+                "error" => $e->getMessage()
             ];
         }
     }
@@ -104,20 +104,20 @@ class UserController implements UserInterface
     {
         $db = new DB();
         $conn = $db->connect();
-        try{
+        try {
             $stmt = $conn->prepare("DELETE FROM users WHERE id=:id");
             $stmt->bindParam(":id", $id);
-            if($stmt->execute()){
+            if ($stmt->execute()) {
                 return true;
-            }else{
+            } else {
                 return [
                     "error" => "Error! Failed to delete the account try again later"
                 ];
 
             }
-        }catch (\PDOException $e){
+        } catch (\PDOException $e) {
             return [
-                "error"=>$e->getMessage()
+                "error" => $e->getMessage()
             ];
         }
 
@@ -127,19 +127,19 @@ class UserController implements UserInterface
     {
         $db = new DB();
         $conn = $db->connect();
-        try{
+        try {
             $stmt = $conn->prepare("SELECT * FROM users WHERE 1");
 
-            if($stmt->execute() && $stmt->rowCount() == 1){
+            if ($stmt->execute() && $stmt->rowCount() > 0) {
                 return $stmt->fetchAll();
-            }else{
+            } else {
                 return [
-                    "error"=> "No Data found"
+                    "error" => "No Data found"
                 ];
             }
-        }catch (\PDOException $e){
+        } catch (\PDOException $e) {
             return [
-                "error"=>$e->getMessage()
+                "error" => $e->getMessage()
             ];
         }
     }
