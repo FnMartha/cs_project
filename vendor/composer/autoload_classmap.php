@@ -17,6 +17,8 @@ return array(
     'App\\Controllers\\HouseController' => $baseDir . '/src/App/Controllers/HouseController.php',
     'App\\Controllers\\HouseOwnerController' => $baseDir . '/src/App/Controllers/HouseOwnerController.php',
     'App\\Controllers\\UserController' => $baseDir . '/src/App/Controllers/UserController.php',
+    'App\\DBManager\\ComplexQuery' => $baseDir . '/src/App/DBManager/ComplexQuery.php',
+    'App\\DBManager\\DB' => $baseDir . '/src/App/DBManager/DB.php',
     'App\\Models\\Agent' => $baseDir . '/src/App/Models/Agent.php',
     'App\\Models\\House' => $baseDir . '/src/App/Models/House.php',
     'App\\Models\\HouseBooking' => $baseDir . '/src/App/Models/HouseBooking.php',

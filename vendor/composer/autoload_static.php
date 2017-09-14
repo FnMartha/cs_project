@@ -32,6 +32,8 @@ class ComposerStaticInit8473e21ff5557f4ffa557f35cd9e8079
         'App\\Controllers\\HouseController' => __DIR__ . '/../..' . '/src/App/Controllers/HouseController.php',
         'App\\Controllers\\HouseOwnerController' => __DIR__ . '/../..' . '/src/App/Controllers/HouseOwnerController.php',
         'App\\Controllers\\UserController' => __DIR__ . '/../..' . '/src/App/Controllers/UserController.php',
+        'App\\DBManager\\ComplexQuery' => __DIR__ . '/../..' . '/src/App/DBManager/ComplexQuery.php',
+        'App\\DBManager\\DB' => __DIR__ . '/../..' . '/src/App/DBManager/DB.php',
         'App\\Models\\Agent' => __DIR__ . '/../..' . '/src/App/Models/Agent.php',
         'App\\Models\\House' => __DIR__ . '/../..' . '/src/App/Models/House.php',
         'App\\Models\\HouseBooking' => __DIR__ . '/../..' . '/src/App/Models/HouseBooking.php',
