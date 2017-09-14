@@ -8,9 +8,11 @@
  require_once __DIR__.'/../vendor/autoload.php';
  use App\Models\User;
  use App\Controllers\UserController;
- function testInsertUser(){
+ use App\Models\House;
+ use App\Controllers\HouseController;
+ function testCreateUser(){
      $user = new User();
-     $user->setUsername("test_username");
+     $user->setUsername("test_username".rand(0, 100));
      $user->setEmail("mail@test.com");
      $user->setPassword("secrete");
      $user->setPhoneNumber("+338499494");
@@ -23,4 +25,41 @@
          echo "ERROR USER ACCOUNT NOT CREATED";
      }
  }
- testInsertUser();
+
+ function testGetUsers(){
+     $users = UserController::all();
+     print_r($users);
+ }
+
+ function testCreateHouse($i){
+
+     $house = new House();
+     $house->setOwnedBy($i);
+     $house->setHouserCategory("1_BEDROOM");
+     $house->setLocation("NGONG");
+     $house->setMinPrice(2000);
+     $house->setMaxPrice(8000);
+     $house->setImageOne(null);
+     $house->setImageTwo(null);
+     $house->setImageThree(null);
+     $house->setImageFour(null);
+     $house->setImageFive(null);
+     $house->setStatus("available");
+     $houseCtrl =  new HouseController();
+
+     $created = $houseCtrl->create($house);
+
+     if ($created === true){
+         echo "HOUSE CREATED";
+     }else{
+         echo "error in creating house";
+     }
+ }
+
+
+
+ for ($i=0; $i<=4;$i++ ){
+     testCreateHouse($i);
+ }
+
+// testGetUsers();
