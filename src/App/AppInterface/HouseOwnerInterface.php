@@ -9,7 +9,10 @@
 namespace App\AppInterface;
 
 
+use App\Models\HouseOwner;
+
 interface HouseOwnerInterface
 {
-
+    public function create(HouseOwner $houseOwner);
+    public function update(HouseOwner $houseOwner, $id);
 }

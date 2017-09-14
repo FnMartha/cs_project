@@ -9,7 +9,11 @@
 namespace App\AppInterface;
 
 
-interface AgentInterface
+use App\Models\Agent;
+
+interface AgentInterface extends BaseInterface
 {
+    public function create(Agent $agent);
+    public function update(Agent $agent, $id);
 
 }

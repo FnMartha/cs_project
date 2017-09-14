@@ -11,5 +11,8 @@ namespace App\AppInterface;
 
 interface BaseInterface
 {
+ public static function getId($id);
+ public static function delete($id);
+ public static function all();
 
 }

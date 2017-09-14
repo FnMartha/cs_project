@@ -9,7 +9,11 @@
 namespace App\AppInterface;
 
 
+use App\Models\HouseBooking;
+
 interface HouseBookingInterface
 {
 
+    public function create(HouseBooking $booking);
+    public function update(HouseBooking $booking, $id);
 }

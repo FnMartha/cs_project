@@ -9,7 +9,10 @@
 namespace App\AppInterface;
 
 
+use App\Models\User;
+
 interface UserInterface
 {
-
+    public function create(User $user);
+    public function update(User $user, $id);
 }
