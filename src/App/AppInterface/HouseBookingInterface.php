@@ -11,7 +11,7 @@ namespace App\AppInterface;
 
 use App\Models\HouseBooking;
 
-interface HouseBookingInterface
+interface HouseBookingInterface extends BaseInterface
 {
 
     public function create(HouseBooking $booking);

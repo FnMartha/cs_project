@@ -11,7 +11,7 @@ namespace App\AppInterface;
 
 use App\Models\User;
 
-interface UserInterface
+interface UserInterface extends BaseInterface
 {
     public function create(User $user);
     public function update(User $user, $id);

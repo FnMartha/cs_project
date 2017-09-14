@@ -11,7 +11,7 @@ namespace App\AppInterface;
 
 use App\Models\House;
 
-interface HouseInterface
+interface HouseInterface extends BaseInterface
 {
     public function create(House $house);
     public function update(House $house, $id);
