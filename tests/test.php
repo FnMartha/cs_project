@@ -35,7 +35,7 @@
 
      $house = new House();
      $house->setOwnedBy($i);
-     $house->setHouserCategory("1_BEDROOM");
+     $house->setHouseCategory("1_BEDROOM");
      $house->setLocation("NGONG");
      $house->setMinPrice(2000);
      $house->setMaxPrice(8000);

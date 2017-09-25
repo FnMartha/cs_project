@@ -11,15 +11,34 @@ namespace App\Models;
 
 class HouseOwner
 {
+
+    /**
+     * @var int
+     */
     private $id;
+    /**
+     * @var int
+     */
     private $userId;
+    /**
+     * @var string
+     */
     private $name;
+    /**
+     * @var string
+     */
     private $email;
+    /**
+     * @var string
+     */
     private $phoneNumber;
+    /**
+     * @var int
+     */
     private $nationalId;
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getId()
     {
@@ -27,7 +46,7 @@ class HouseOwner
     }
 
     /**
-     * @param mixed $id
+     * @param int $id
      */
     public function setId($id)
     {
@@ -35,7 +54,7 @@ class HouseOwner
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getUserId()
     {
@@ -43,7 +62,7 @@ class HouseOwner
     }
 
     /**
-     * @param mixed $userId
+     * @param int $userId
      */
     public function setUserId($userId)
     {
@@ -51,7 +70,7 @@ class HouseOwner
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName()
     {
@@ -59,7 +78,7 @@ class HouseOwner
     }
 
     /**
-     * @param mixed $name
+     * @param string $name
      */
     public function setName($name)
     {
@@ -67,7 +86,7 @@ class HouseOwner
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getEmail()
     {
@@ -75,7 +94,7 @@ class HouseOwner
     }
 
     /**
-     * @param mixed $email
+     * @param string $email
      */
     public function setEmail($email)
     {
@@ -83,7 +102,7 @@ class HouseOwner
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getPhoneNumber()
     {
@@ -91,7 +110,7 @@ class HouseOwner
     }
 
     /**
-     * @param mixed $phoneNumber
+     * @param string $phoneNumber
      */
     public function setPhoneNumber($phoneNumber)
     {
@@ -99,7 +118,7 @@ class HouseOwner
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getNationalId()
     {
@@ -107,10 +126,11 @@ class HouseOwner
     }
 
     /**
-     * @param mixed $nationalId
+     * @param int $nationalId
      */
     public function setNationalId($nationalId)
     {
         $this->nationalId = $nationalId;
     }
+
 }

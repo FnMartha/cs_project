@@ -13,8 +13,16 @@ use App\AppInterface\HouseOwnerInterface;
 use App\Models\HouseOwner;
 use App\DBManager\DB;
 
+/**
+ * Class HouseOwnerController
+ * @package App\Controllers
+ */
 class HouseOwnerController implements HouseOwnerInterface
 {
+    /**
+     * @param HouseOwner $houseOwner
+     * @return array|bool
+     */
     public function create(HouseOwner $houseOwner)
     {
         try {
@@ -44,6 +52,11 @@ class HouseOwnerController implements HouseOwnerInterface
         }
     }
 
+    /**
+     * @param HouseOwner $houseOwner
+     * @param $id
+     * @return array|bool
+     */
     public function update(HouseOwner $houseOwner, $id)
     {
         try {
@@ -74,6 +87,10 @@ class HouseOwnerController implements HouseOwnerInterface
         }
     }
 
+    /**
+     * @param $id
+     * @return array
+     */
     public static function getId($id)
     {
         $db = new DB();
@@ -95,6 +112,10 @@ class HouseOwnerController implements HouseOwnerInterface
         }
     }
 
+    /**
+     * @param $id
+     * @return array|bool
+     */
     public static function delete($id)
     {
         $db = new DB();
@@ -117,6 +138,9 @@ class HouseOwnerController implements HouseOwnerInterface
         }
     }
 
+    /**
+     * @return array
+     */
     public static function all()
     {
         $db = new DB();

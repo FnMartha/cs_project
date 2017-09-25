@@ -9,10 +9,27 @@
 namespace App\AppInterface;
 
 
+/**
+ * Interface BaseInterface
+ * @package App\AppInterface
+ */
 interface BaseInterface
 {
- public static function getId($id);
- public static function delete($id);
- public static function all();
+    /**
+     * @param $id
+     * @return array
+     */
+    public static function getId($id);
+
+    /**
+     * @param $id
+     * @return bool
+     */
+    public static function delete($id);
+
+    /**
+     * @return array
+     */
+    public static function all();
 
 }

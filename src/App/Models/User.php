@@ -11,15 +11,33 @@ namespace App\Models;
 
 class User
 {
+    /**
+     * @var int
+     */
     private $id;
+    /**
+     * @var string
+     */
     private $username;
+    /**
+     * @var string
+     */
     private $email;
+    /**
+     * @var string
+     */
     private $password;
+    /**
+     * @var string
+     */
     private $accountType;
+    /**
+     * @var string
+     */
     private $phoneNumber;
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getId()
     {
@@ -27,7 +45,7 @@ class User
     }
 
     /**
-     * @param mixed $id
+     * @param int $id
      */
     public function setId($id)
     {
@@ -35,7 +53,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getUsername()
     {
@@ -43,7 +61,7 @@ class User
     }
 
     /**
-     * @param mixed $username
+     * @param string $username
      */
     public function setUsername($username)
     {
@@ -51,7 +69,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getEmail()
     {
@@ -59,7 +77,7 @@ class User
     }
 
     /**
-     * @param mixed $email
+     * @param string $email
      */
     public function setEmail($email)
     {
@@ -67,7 +85,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getPassword()
     {
@@ -75,7 +93,7 @@ class User
     }
 
     /**
-     * @param mixed $password
+     * @param string $password
      */
     public function setPassword($password)
     {
@@ -83,7 +101,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getAccountType()
     {
@@ -91,7 +109,7 @@ class User
     }
 
     /**
-     * @param mixed $accountType
+     * @param string $accountType
      */
     public function setAccountType($accountType)
     {
@@ -99,7 +117,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getPhoneNumber()
     {
@@ -107,7 +125,7 @@ class User
     }
 
     /**
-     * @param mixed $phoneNumber
+     * @param string $phoneNumber
      */
     public function setPhoneNumber($phoneNumber)
     {

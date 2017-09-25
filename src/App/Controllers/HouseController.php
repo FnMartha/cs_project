@@ -13,8 +13,16 @@ use App\AppInterface\HouseInterface;
 use App\DBManager\DB;
 use App\Models\House;
 
+/**
+ * Class HouseController
+ * @package App\Controllers
+ */
 class HouseController implements HouseInterface
 {
+    /**
+     * @param House $house
+     * @return array|bool
+     */
     public function create(House $house)
     {
         try {
@@ -24,7 +32,7 @@ class HouseController implements HouseInterface
                     VALUES (:owned_by, :house_category, :location, :min_price, :max_price, :image1, :image2, :image3, :image4, :image5, :status)");
 
             $stmt->bindValue(":owned_by", $house->getOwnedBy());
-            $stmt->bindValue(":house_category", $house->getHouserCategory());
+            $stmt->bindValue(":house_category", $house->getHouseCategory());
             $stmt->bindValue(":location", $house->getLocation());
             $stmt->bindValue(":min_price", $house->getMinPrice());
             $stmt->bindValue(":max_price", $house->getMaxPrice());
@@ -50,6 +58,11 @@ class HouseController implements HouseInterface
         }
     }
 
+    /**
+     * @param House $house
+     * @param $id
+     * @return array|bool
+     */
     public function update(House $house, $id)
     {
         try {
@@ -63,7 +76,7 @@ class HouseController implements HouseInterface
             );
             $stmt->bindParam(":id",$id);
             $stmt->bindValue(":owned_by", $house->getOwnedBy());
-            $stmt->bindValue(":house_category", $house->getHouserCategory());
+            $stmt->bindValue(":house_category", $house->getHouseCategory());
             $stmt->bindValue(":location", $house->getLocation());
             $stmt->bindValue(":min_price", $house->getMinPrice());
             $stmt->bindValue(":max_price", $house->getMaxPrice());
@@ -89,6 +102,10 @@ class HouseController implements HouseInterface
         }
     }
 
+    /**
+     * @param $id
+     * @return array
+     */
     public static function getId($id)
     {
         $db = new DB();
@@ -110,6 +127,10 @@ class HouseController implements HouseInterface
         }
     }
 
+    /**
+     * @param $id
+     * @return array|bool
+     */
     public static function delete($id)
     {
         $db = new DB();
@@ -132,6 +153,9 @@ class HouseController implements HouseInterface
         }
     }
 
+    /**
+     * @return array
+     */
     public static function all()
     {
         $db = new DB();

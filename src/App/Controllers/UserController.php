@@ -13,8 +13,16 @@ use App\AppInterface\UserInterface;
 use App\DBManager\DB;
 use App\Models\User;
 
+/**
+ * Class UserController
+ * @package App\Controllers
+ */
 class UserController implements UserInterface
 {
+    /**
+     * @param User $user
+     * @return array|bool
+     */
     public function create(User $user)
     {
         try {
@@ -44,6 +52,11 @@ class UserController implements UserInterface
         }
     }
 
+    /**
+     * @param User $user
+     * @param $id
+     * @return array|bool
+     */
     public function update(User $user, $id)
     {
         try {
@@ -79,6 +92,10 @@ class UserController implements UserInterface
         }
     }
 
+    /**
+     * @param $id
+     * @return array
+     */
     public static function getId($id)
     {
         $db = new DB();
@@ -100,6 +117,10 @@ class UserController implements UserInterface
         }
     }
 
+    /**
+     * @param $id
+     * @return array|bool
+     */
     public static function delete($id)
     {
         $db = new DB();
@@ -123,6 +144,9 @@ class UserController implements UserInterface
 
     }
 
+    /**
+     * @return array
+     */
     public static function all()
     {
         $db = new DB();

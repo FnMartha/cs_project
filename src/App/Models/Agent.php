@@ -12,14 +12,29 @@ namespace App\Models;
 class Agent
 {
 
+    /**
+     * @var int
+     */
     private $id;
+    /**
+     * @var int
+     */
     private $userId;
+    /**
+     * @var string
+     */
     private $name;
+    /**
+     * @var string
+     */
     private $email;
+    /**
+     * @var string
+     */
     private $phoneNumber;
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getId()
     {
@@ -27,7 +42,7 @@ class Agent
     }
 
     /**
-     * @param mixed $id
+     * @param int $id
      */
     public function setId($id)
     {
@@ -35,7 +50,7 @@ class Agent
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getUserId()
     {
@@ -43,7 +58,7 @@ class Agent
     }
 
     /**
-     * @param mixed $userId
+     * @param int $userId
      */
     public function setUserId($userId)
     {
@@ -51,7 +66,7 @@ class Agent
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName()
     {
@@ -59,7 +74,7 @@ class Agent
     }
 
     /**
-     * @param mixed $name
+     * @param string $name
      */
     public function setName($name)
     {
@@ -67,7 +82,7 @@ class Agent
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getEmail()
     {
@@ -75,7 +90,7 @@ class Agent
     }
 
     /**
-     * @param mixed $email
+     * @param string $email
      */
     public function setEmail($email)
     {
@@ -83,7 +98,7 @@ class Agent
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getPhoneNumber()
     {
@@ -91,11 +106,13 @@ class Agent
     }
 
     /**
-     * @param mixed $phoneNumber
+     * @param string $phoneNumber
      */
     public function setPhoneNumber($phoneNumber)
     {
         $this->phoneNumber = $phoneNumber;
     }
+
+
 
 }

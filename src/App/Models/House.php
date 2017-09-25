@@ -11,21 +11,57 @@ namespace App\Models;
 
 class House
 {
- private $id;
- private $ownedBy;
- private $houserCategory;
- private $location;
- private $minPrice;
- private $maxPrice;
- private $imageOne;
- private $imageTwo;
- private $imageThree;
- private $imageFour;
- private $imageFive;
- private $status;
+    /**
+     * @var int
+     */
+    private $id;
+    /**
+     * @var int
+     */
+    private $ownedBy;
+    /**
+     * @var string
+     */
+    private $houseCategory;
+    /**
+     * @var string
+     */
+    private $location;
+    /**
+     * @var float
+     */
+    private $minPrice;
+    /**
+     * @var float
+     */
+    private $maxPrice;
+    /**
+     * @var  string
+     */
+    private $imageOne;
+    /**
+     * @var string
+     */
+    private $imageTwo;
+    /**
+     * @var string
+     */
+    private $imageThree;
+    /**
+     * @var string
+     */
+    private $imageFour;
+    /**
+     * @var string
+     */
+    private $imageFive;
+    /**
+     * @var string
+     */
+    private $status;
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getId()
     {
@@ -33,7 +69,7 @@ class House
     }
 
     /**
-     * @param mixed $id
+     * @param int $id
      */
     public function setId($id)
     {
@@ -41,7 +77,7 @@ class House
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getOwnedBy()
     {
@@ -49,7 +85,7 @@ class House
     }
 
     /**
-     * @param mixed $ownedBy
+     * @param int $ownedBy
      */
     public function setOwnedBy($ownedBy)
     {
@@ -57,23 +93,23 @@ class House
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getHouserCategory()
+    public function getHouseCategory()
     {
-        return $this->houserCategory;
+        return $this->houseCategory;
     }
 
     /**
-     * @param mixed $houserCategory
+     * @param string $houseCategory
      */
-    public function setHouserCategory($houserCategory)
+    public function setHouseCategory($houseCategory)
     {
-        $this->houserCategory = $houserCategory;
+        $this->houseCategory = $houseCategory;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getLocation()
     {
@@ -81,7 +117,7 @@ class House
     }
 
     /**
-     * @param mixed $location
+     * @param string $location
      */
     public function setLocation($location)
     {
@@ -89,7 +125,7 @@ class House
     }
 
     /**
-     * @return mixed
+     * @return float
      */
     public function getMinPrice()
     {
@@ -97,7 +133,7 @@ class House
     }
 
     /**
-     * @param mixed $minPrice
+     * @param float $minPrice
      */
     public function setMinPrice($minPrice)
     {
@@ -105,7 +141,7 @@ class House
     }
 
     /**
-     * @return mixed
+     * @return float
      */
     public function getMaxPrice()
     {
@@ -113,7 +149,7 @@ class House
     }
 
     /**
-     * @param mixed $maxPrice
+     * @param float $maxPrice
      */
     public function setMaxPrice($maxPrice)
     {
@@ -121,7 +157,7 @@ class House
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getImageOne()
     {
@@ -129,7 +165,7 @@ class House
     }
 
     /**
-     * @param mixed $imageOne
+     * @param string $imageOne
      */
     public function setImageOne($imageOne)
     {
@@ -137,7 +173,7 @@ class House
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getImageTwo()
     {
@@ -145,7 +181,7 @@ class House
     }
 
     /**
-     * @param mixed $imageTwo
+     * @param string $imageTwo
      */
     public function setImageTwo($imageTwo)
     {
@@ -153,7 +189,7 @@ class House
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getImageThree()
     {
@@ -161,7 +197,7 @@ class House
     }
 
     /**
-     * @param mixed $imageThree
+     * @param string $imageThree
      */
     public function setImageThree($imageThree)
     {
@@ -169,7 +205,7 @@ class House
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getImageFour()
     {
@@ -177,7 +213,7 @@ class House
     }
 
     /**
-     * @param mixed $imageFour
+     * @param string $imageFour
      */
     public function setImageFour($imageFour)
     {
@@ -185,7 +221,7 @@ class House
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getImageFive()
     {
@@ -193,7 +229,7 @@ class House
     }
 
     /**
-     * @param mixed $imageFive
+     * @param string $imageFive
      */
     public function setImageFive($imageFive)
     {
@@ -201,7 +237,7 @@ class House
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getStatus()
     {
@@ -209,12 +245,11 @@ class House
     }
 
     /**
-     * @param mixed $status
+     * @param string $status
      */
     public function setStatus($status)
     {
         $this->status = $status;
     }
-
 
 }
