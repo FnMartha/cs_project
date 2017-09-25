@@ -4,9 +4,18 @@
 namespace App\Auth;
 
 
+/**
+ * Trait PasswordValidator
+ * @package App\Auth
+ */
 trait PasswordValidator
 {
 
+    /**
+     * @param $password
+     * @param int $length
+     * @return bool
+     */
     public static function passwordValidator($password, $length = 8)
     {
         $isValid = true;

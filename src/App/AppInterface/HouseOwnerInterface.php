@@ -11,8 +11,22 @@ namespace App\AppInterface;
 
 use App\Models\HouseOwner;
 
+/**
+ * Interface HouseOwnerInterface
+ * @package App\AppInterface
+ */
 interface HouseOwnerInterface extends BaseInterface
 {
+    /**
+     * @param HouseOwner $houseOwner
+     * @return bool
+     */
     public function create(HouseOwner $houseOwner);
+
+    /**
+     * @param HouseOwner $houseOwner
+     * @param $id
+     * @return boolean
+     */
     public function update(HouseOwner $houseOwner, $id);
 }

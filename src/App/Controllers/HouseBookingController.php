@@ -13,8 +13,16 @@ use App\AppInterface\HouseBookingInterface;
 use App\DBManager\DB;
 use App\Models\HouseBooking;
 
+/**
+ * Class HouseBookingController
+ * @package App\Controllers
+ */
 class HouseBookingController implements HouseBookingInterface
 {
+    /**
+     * @param HouseBooking $booking
+     * @return array|bool
+     */
     public function create(HouseBooking $booking)
     {
         try {
@@ -45,6 +53,11 @@ class HouseBookingController implements HouseBookingInterface
         }
     }
 
+    /**
+     * @param HouseBooking $booking
+     * @param $id
+     * @return array|bool
+     */
     public function update(HouseBooking $booking, $id)
     {
         try {
@@ -82,6 +95,10 @@ class HouseBookingController implements HouseBookingInterface
         }
     }
 
+    /**
+     * @param $id
+     * @return array
+     */
     public static function getId($id)
     {
         $db = new DB();
@@ -103,6 +120,10 @@ class HouseBookingController implements HouseBookingInterface
         }
     }
 
+    /**
+     * @param $id
+     * @return array|bool
+     */
     public static function delete($id)
     {
         $db = new DB();
@@ -126,6 +147,9 @@ class HouseBookingController implements HouseBookingInterface
     }
 
 
+    /**
+     * @return array
+     */
     public static function all()
     {
         $db = new DB();

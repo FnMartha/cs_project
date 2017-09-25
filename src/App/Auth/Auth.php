@@ -66,6 +66,10 @@ class Auth
         return $this->csrf_token = sha1(md5(uniqid("auth_token", true)));
     }
 
+    /**
+     * @param $email
+     * @return array|bool
+     */
     public static function checkEmail($email){
         $db = new DB();
         $conn = $db->connect();
@@ -80,11 +84,20 @@ class Auth
         }
     }
 
+    /**
+     * @param $password
+     * @return bool|string
+     */
     public static function makePassword($password)
     {
         return password_hash($password, PASSWORD_BCRYPT);
     }
 
+    /**
+     * @param $email
+     * @param $newPassword
+     * @return bool
+     */
     public static function resetPassword($email, $newPassword)
     {
         $db = new DB();

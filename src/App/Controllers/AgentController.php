@@ -13,8 +13,17 @@ use App\AppInterface\AgentInterface;
 use App\DBManager\DB;
 use App\Models\Agent;
 
+/**
+ * Class AgentController
+ * @package App\Controllers
+ */
 class AgentController implements AgentInterface
 {
+
+    /**
+     * @param Agent $agent
+     * @return array|bool
+     */
     public function create(Agent $agent)
     {
         try {
@@ -45,6 +54,11 @@ class AgentController implements AgentInterface
         }
     }
 
+    /**
+     * @param Agent $agent
+     * @param $id
+     * @return array|bool
+     */
     public function update(Agent $agent, $id)
     {
         try {
@@ -75,6 +89,10 @@ class AgentController implements AgentInterface
         }
     }
 
+    /**
+     * @param $id
+     * @return array
+     */
     public static function getId($id)
     {
         $db = new DB();
@@ -96,6 +114,10 @@ class AgentController implements AgentInterface
         }
     }
 
+    /**
+     * @param $id
+     * @return array|bool
+     */
     public static function delete($id)
     {
         $db = new DB();
@@ -118,6 +140,9 @@ class AgentController implements AgentInterface
         }
     }
 
+    /**
+     * @return array
+     */
     public static function all()
     {
         $db = new DB();
