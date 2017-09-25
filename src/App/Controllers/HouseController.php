@@ -24,7 +24,7 @@ class HouseController implements HouseInterface
                     VALUES (:owned_by, :house_category, :location, :min_price, :max_price, :image1, :image2, :image3, :image4, :image5, :status)");
 
             $stmt->bindValue(":owned_by", $house->getOwnedBy());
-            $stmt->bindValue(":house_category", $house->getHouserCategory());
+            $stmt->bindValue(":house_category", $house->getHouseCategory());
             $stmt->bindValue(":location", $house->getLocation());
             $stmt->bindValue(":min_price", $house->getMinPrice());
             $stmt->bindValue(":max_price", $house->getMaxPrice());
@@ -63,7 +63,7 @@ class HouseController implements HouseInterface
             );
             $stmt->bindParam(":id",$id);
             $stmt->bindValue(":owned_by", $house->getOwnedBy());
-            $stmt->bindValue(":house_category", $house->getHouserCategory());
+            $stmt->bindValue(":house_category", $house->getHouseCategory());
             $stmt->bindValue(":location", $house->getLocation());
             $stmt->bindValue(":min_price", $house->getMinPrice());
             $stmt->bindValue(":max_price", $house->getMaxPrice());
