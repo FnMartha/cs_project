@@ -109,7 +109,7 @@ $users =App\Controllers\UserController::all();
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge"><?php echo $siteCounter?></div>
-                                    <div>E-learning Resources</div>
+                                    <div></div>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +131,7 @@ $users =App\Controllers\UserController::all();
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">6</div>
-                                    <div>Pending users</div>
+                                    <div>Agents </div>
                                 </div>
                             </div>
                         </div>
@@ -152,8 +152,8 @@ $users =App\Controllers\UserController::all();
                                     <i class="fa fa-dollar fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">5000</div>
-                                    <div>Amount Transacted</div>
+                                    <div class="huge">20</div>
+                                    <div>Clients</div>
                                 </div>
                             </div>
                         </div>

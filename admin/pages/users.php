@@ -90,7 +90,6 @@ $counter = 1;
                                     <th>Account Type</th>
                                     <th>Phone Number</th>
 
-
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -101,7 +100,6 @@ $counter = 1;
                                         <td><?php echo $user['email']; ?></td>
                                         <td><?php echo $user['account_type']; ?></td>
                                         <td><?php echo $user['phone_number']; ?></td>
-
                                     </tr>
                                 <?php endforeach; ?>
                                 </tbody>
@@ -112,78 +110,7 @@ $counter = 1;
             </div>
         </div>
     </div>
-    <!-- Modal 4 (Confirm)-->
-    <div class="modal fade" id="confirmApprove" data-backdrop="static">
-        <div class="modal-dialog">
-            <div class="modal-content">
 
-                <div class="modal-header">
-                    <h4 class="modal-title">Approve Account</h4>
-                    <div id="confirmFeedback1">
-
-                    </div>
-                </div>
-
-                <div class="modal-body">
-                    <p style="font-size: 16px;"> Click Continue to Approve the account</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id='btnApprove' class="btn btn-info">Continue</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--end-->
-
-
-    <!-- Modal 4 (Confirm)-->
-    <div class="modal fade" id="confirmBlock" data-backdrop="static">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <h4 class="modal-title">Block Account </h4>
-                    <div id="confirmFeedback2">
-
-                    </div>
-                </div>
-
-                <div class="modal-body">
-                    <p style="font-size: 16px;"> Click Continue to block this account.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id='btnBlock' class="btn btn-info">Continue</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--end-->
-
-    <!-- Modal 4 (Confirm)-->
-    <div class="modal fade" id="confirmUnblock" data-backdrop="static">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <h4 class="modal-title">Unblock Account</h4>
-                    <div id="confirmFeedback3">
-
-                    </div>
-                </div>
-
-                <div class="modal-body">
-                    <p style="font-size: 16px;"> Click Continue to Unblock Account.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id='btnUnblock' class="btn btn-info">Continue</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--end-->
     <?php include_once 'footer.php' ?>
     <script>
         $(document).ready(function () {
@@ -192,145 +119,6 @@ $counter = 1;
             });
         });
     </script>
-    <script>
-        function approveAccount(userId) {
-            $('#confirmApprove').modal('show');
-            var data = JSON.stringify(
-                {
-                    userId:userId,
-                    option: "approve"
-                }
-            );
-            var url = 'manage_users.php';
-            $('#btnApprove').on('click', function (e) {
-                e.preventDefault;
-                $.ajax(
-                    {
-                        type: 'POST',
-                        url: url,
-                        data: data,
-                        dataType: 'json',
-                        contentType: 'application/json;charset=utf-8;',
-                        traditional: true,
-                        success: function (response) {
-                            console.log(response);
-                            if (response.statusCode == 200) {
-                                console.log(response);
-                                $('#confirmFeedback1').removeClass('alert alert-danger')
-                                    .addClass('alert alert-success')
-                                    .text(response.message);
-                                setTimeout(function () {
-                                    location.reload();
-                                }, 1000);
-                            }
-                            if (response.statusCode == 500) {
-                                $('#confirmFeedback1').removeClass('alert alert-success')
-                                    .html('<div class="alert alert-danger alert-dismissable">' +
-                                        '<a href="#" class="close"  data-dismiss="alert" aria-label="close">&times;</a>' +
-                                        '<strong>Error! </strong> ' + response.message + '</div>')
 
-                            }
-                        },
-                        error: function (e) {
-                            console.log(e);
-                        }
-                    }
-                )
-            })
-        }
-
-        function blockAccount(userId) {
-            $('#confirmBlock').modal('show');
-            var data = JSON.stringify(
-                {
-                    userId:userId,
-                    option: "block"
-                }
-            );
-            var url = 'manage_users.php';
-            $('#btnBlock').on('click', function (e) {
-                e.preventDefault;
-                $.ajax(
-                    {
-                        type: 'POST',
-                        url: url,
-                        data: data,
-                        dataType: 'json',
-                        contentType: 'application/json;charset=utf-8;',
-                        traditional: true,
-                        success: function (response) {
-                            console.log(response);
-                            if (response.statusCode == 200) {
-                                console.log(response);
-                                $('#confirmFeedback2').removeClass('alert alert-danger')
-                                    .addClass('alert alert-success')
-                                    .text(response.message);
-                                setTimeout(function () {
-                                    location.reload();
-                                }, 1000);
-                            }
-                            if (response.statusCode == 500) {
-                                $('#confirmFeedback2').removeClass('alert alert-success')
-                                    .html('<div class="alert alert-danger alert-dismissable">' +
-                                        '<a href="#" class="close"  data-dismiss="alert" aria-label="close">&times;</a>' +
-                                        '<strong>Error! </strong> ' + response.message + '</div>')
-
-                            }
-                        },
-                        error: function (e) {
-                            console.log(e);
-                        }
-                    }
-                )
-            })
-        }
-
-        function unBlockAccount(userId) {
-            $('#confirmUnblock').modal('show');
-            var data = JSON.stringify(
-                {
-                    userId:userId,
-                    option: "unblock"
-                }
-            );
-            var url = 'manage_users.php';
-            $('#btnUnblock').on('click', function (e) {
-                e.preventDefault;
-                $.ajax(
-                    {
-                        type: 'POST',
-                        url: url,
-                        data: data,
-                        dataType: 'json',
-                        contentType: 'application/json;charset=utf-8;',
-                        traditional: true,
-                        success: function (response) {
-                            console.log(response);
-                            if (response.statusCode == 200) {
-                                console.log(response);
-                                $('#confirmFeedback3').removeClass('alert alert-danger')
-                                    .addClass('alert alert-success')
-                                    .text(response.message);
-                                setTimeout(function () {
-                                    location.reload();
-                                }, 1000);
-                            }
-                            if (response.statusCode == 500) {
-                                $('#confirmFeedback3').removeClass('alert alert-success')
-                                    .html('<div class="alert alert-danger alert-dismissable">' +
-                                        '<a href="#" class="close"  data-dismiss="alert" aria-label="close">&times;</a>' +
-                                        '<strong>Error! </strong> ' + response.message + '</div>')
-
-                            }
-                        },
-                        error: function (e) {
-                            console.log(e);
-                        }
-
-                    }
-                )
-            })
-        }
-    </script>
 </body>
 </html>
