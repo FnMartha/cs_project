@@ -11,15 +11,33 @@ namespace App\Models;
 
 class HouseBooking
 {
+    /**
+     * @var int
+     */
     private $id;
+    /**
+     * @var int
+     */
     private $clientId;
+    /**
+     * @var float
+     */
     private $amountPaid;
+    /**
+     * @var float
+     */
     private $amountDue;
+    /**
+     * @var int
+     */
     private $houseId;
+    /**
+     * @var \DateTime
+     */
     private $dateBooked;
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getId()
     {
@@ -27,7 +45,7 @@ class HouseBooking
     }
 
     /**
-     * @param mixed $id
+     * @param int $id
      */
     public function setId($id)
     {
@@ -35,7 +53,7 @@ class HouseBooking
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getClientId()
     {
@@ -43,7 +61,7 @@ class HouseBooking
     }
 
     /**
-     * @param mixed $clientId
+     * @param int $clientId
      */
     public function setClientId($clientId)
     {
@@ -51,7 +69,7 @@ class HouseBooking
     }
 
     /**
-     * @return mixed
+     * @return float
      */
     public function getAmountPaid()
     {
@@ -59,7 +77,7 @@ class HouseBooking
     }
 
     /**
-     * @param mixed $amountPaid
+     * @param float $amountPaid
      */
     public function setAmountPaid($amountPaid)
     {
@@ -67,7 +85,7 @@ class HouseBooking
     }
 
     /**
-     * @return mixed
+     * @return float
      */
     public function getAmountDue()
     {
@@ -75,7 +93,7 @@ class HouseBooking
     }
 
     /**
-     * @param mixed $amountDue
+     * @param float $amountDue
      */
     public function setAmountDue($amountDue)
     {
@@ -83,7 +101,7 @@ class HouseBooking
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getHouseId()
     {
@@ -91,7 +109,7 @@ class HouseBooking
     }
 
     /**
-     * @param mixed $houseId
+     * @param int $houseId
      */
     public function setHouseId($houseId)
     {
@@ -99,7 +117,7 @@ class HouseBooking
     }
 
     /**
-     * @return mixed
+     * @return \DateTime
      */
     public function getDateBooked()
     {
@@ -107,11 +125,13 @@ class HouseBooking
     }
 
     /**
-     * @param mixed $dateBooked
+     * @param \DateTime $dateBooked
      */
     public function setDateBooked($dateBooked)
     {
         $this->dateBooked = $dateBooked;
     }
+
+
 
 }
