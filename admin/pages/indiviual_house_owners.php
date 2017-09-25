@@ -1,14 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: New LAptop
- * Date: 13/06/2017
- * Time: 08:27
- */
 
 require_once '../../vendor/autoload.php';
-use App\Controllers\UserController;
-$users = UserController::all();
+use App\Controllers\HouseOwnerController;
+
+$successMsg = '';
+$errorMsg = '';
+$owners = HouseOwnerController::all();
 $counter = 1;
 
 ?>
@@ -27,12 +24,12 @@ $counter = 1;
     <title>Manage Users</title>
 
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 
 
     <!-- Bootstrap Core CSS -->
@@ -80,32 +77,38 @@ $counter = 1;
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
+                        <?php if(count($owners)> 0 && !isset($owners['error'])):?>
                         <div class="table-responsive">
                             <table width="100%" class="table table-striped table-bordered table-hover"
                                    id="dataTables-example">
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Username</th>
+                                    <th>Name</th>
                                     <th>Email</th>
-                                    <th>Account Type</th>
                                     <th>Phone Number</th>
+                                    <th>National ID Number</th>
 
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php foreach ($users as $user): ?>
+                                <?php foreach ($owners as $owner): ?>
                                     <tr class="odd gradeX">
                                         <td><?php echo $counter++ ?></td>
-                                        <td style="font-weight: bolder; color:<?php if($user['isAdmin']==1): echo 'red';endif;?>"><?php echo $user['username']; ?></td>
-                                        <td><?php echo $user['email']; ?></td>
-                                        <td><?php echo $user['account_type']; ?></td>
-                                        <td><?php echo $user['phone_number']; ?></td>
+                                        <td><?php echo isset($owner['name']) ? $owner['name'] : '' ?></td>
+                                        <td><?php echo isset($owner['email']) ? $owner['email']: ''; ?></td>
+                                        <td><?php echo isset($owner['phone_number']) ? $owner['phone_number'] : ''; ?></td>
+                                        <td><?php echo isset($owner['id_number']) ? $owner['id_number']: ''; ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
+                        <?php else:?>
+                        <div class="alert alert-info">
+                            No records
+                        </div>
+                        <?php endif;?>
                     </div>
                 </div>
             </div>
@@ -120,6 +123,5 @@ $counter = 1;
             });
         });
     </script>
-
 </body>
 </html>

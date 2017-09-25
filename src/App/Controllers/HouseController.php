@@ -49,7 +49,6 @@ class HouseController implements HouseInterface
                 return ['error' => "Error Occurred. House Owner Not Registered"];
             }
 
-
         } catch (\PDOException $e) {
             echo $e->getMessage();
             return [

@@ -12,6 +12,8 @@ return array(
     'App\\AppInterface\\HouseInterface' => $baseDir . '/src/App/AppInterface/HouseInterface.php',
     'App\\AppInterface\\HouseOwnerInterface' => $baseDir . '/src/App/AppInterface/HouseOwnerInterface.php',
     'App\\AppInterface\\UserInterface' => $baseDir . '/src/App/AppInterface/UserInterface.php',
+    'App\\Auth\\Auth' => $baseDir . '/src/App/Auth/Auth.php',
+    'App\\Auth\\PasswordValidator' => $baseDir . '/src/App/Auth/PasswordValidator.php',
     'App\\Controllers\\AgentController' => $baseDir . '/src/App/Controllers/AgentController.php',
     'App\\Controllers\\HouseBookingController' => $baseDir . '/src/App/Controllers/HouseBookingController.php',
     'App\\Controllers\\HouseController' => $baseDir . '/src/App/Controllers/HouseController.php',
@@ -24,4 +26,5 @@ return array(
     'App\\Models\\HouseBooking' => $baseDir . '/src/App/Models/HouseBooking.php',
     'App\\Models\\HouseOwner' => $baseDir . '/src/App/Models/HouseOwner.php',
     'App\\Models\\User' => $baseDir . '/src/App/Models/User.php',
+    'App\\ServiceProvider\\FileUploader' => $baseDir . '/src/App/ServiceProvider/FileUploader.php',
 );

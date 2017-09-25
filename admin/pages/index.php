@@ -5,8 +5,7 @@ use App\Controllers\UserController;
 
 
 $userCounter=0;
-$siteCounter=0;
-$users =App\Controllers\UserController::all();
+$users =UserController::all();
 
  foreach ($users as $user):
      $userCounter=$userCounter+1;
@@ -108,7 +107,7 @@ $users =App\Controllers\UserController::all();
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge"><?php echo $siteCounter?></div>
+                                    <div class="huge"><?php //echo $siteCounter?></div>
                                     <div></div>
                                 </div>
                             </div>

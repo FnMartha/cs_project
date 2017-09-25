@@ -27,6 +27,8 @@ class ComposerStaticInit8473e21ff5557f4ffa557f35cd9e8079
         'App\\AppInterface\\HouseInterface' => __DIR__ . '/../..' . '/src/App/AppInterface/HouseInterface.php',
         'App\\AppInterface\\HouseOwnerInterface' => __DIR__ . '/../..' . '/src/App/AppInterface/HouseOwnerInterface.php',
         'App\\AppInterface\\UserInterface' => __DIR__ . '/../..' . '/src/App/AppInterface/UserInterface.php',
+        'App\\Auth\\Auth' => __DIR__ . '/../..' . '/src/App/Auth/Auth.php',
+        'App\\Auth\\PasswordValidator' => __DIR__ . '/../..' . '/src/App/Auth/PasswordValidator.php',
         'App\\Controllers\\AgentController' => __DIR__ . '/../..' . '/src/App/Controllers/AgentController.php',
         'App\\Controllers\\HouseBookingController' => __DIR__ . '/../..' . '/src/App/Controllers/HouseBookingController.php',
         'App\\Controllers\\HouseController' => __DIR__ . '/../..' . '/src/App/Controllers/HouseController.php',
@@ -39,6 +41,7 @@ class ComposerStaticInit8473e21ff5557f4ffa557f35cd9e8079
         'App\\Models\\HouseBooking' => __DIR__ . '/../..' . '/src/App/Models/HouseBooking.php',
         'App\\Models\\HouseOwner' => __DIR__ . '/../..' . '/src/App/Models/HouseOwner.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/src/App/Models/User.php',
+        'App\\ServiceProvider\\FileUploader' => __DIR__ . '/../..' . '/src/App/ServiceProvider/FileUploader.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
