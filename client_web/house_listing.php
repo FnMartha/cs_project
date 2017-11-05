@@ -35,7 +35,7 @@ $houses = HouseController::all();
               <span>Email <?php echo  UserController::getId($house['owned_by'])['email']; ?></span>
               <br>
               <small>status <?php echo $house['status'];?>
-              lat <?php echo $house['lat']?> lng <?php echo $house['lng']?>
+             
               </small>
           </p>
             <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="setValues('<?php echo $house['lat']?>', '<?php echo $house['lng']?>')">View On map</button>
