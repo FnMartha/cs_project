@@ -59,7 +59,14 @@ class House
      * @var string
      */
     private $status;
-
+    /**
+     * @var float
+     */
+    private $lat;
+    /**
+     * @var float
+     */
+    private $lng;
     /**
      * @return int
      */
@@ -251,5 +258,39 @@ class House
     {
         $this->status = $status;
     }
+
+    /**
+     * @return float
+     */
+    public function getLat()
+    {
+        return $this->lat;
+    }
+
+    /**
+     * @param float $lat
+     */
+    public function setLat($lat)
+    {
+        $this->lat = $lat;
+    }
+
+    /**
+     * @return float
+     */
+    public function getLng()
+    {
+        return $this->lng;
+    }
+
+    /**
+     * @param float $lng
+     */
+    public function setLng($lng)
+    {
+        $this->lng = $lng;
+    }
+
+
 
 }

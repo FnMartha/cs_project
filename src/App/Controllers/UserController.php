@@ -94,22 +94,23 @@ class UserController implements UserInterface
 
     /**
      * @param $id
-     * @return array
+     * @return array|object
      */
     public static function getId($id)
     {
         $db = new DB();
         $conn = $db->connect();
         try {
-            $stmt = $conn->prepare("SELECT * FROM users WHERE id:=id");
-            $stmt->bindParam(":id", $id);
-            if ($stmt->execute() && $stmt->rowCount() == 1) {
-                return $stmt->fetchAll();
+            $stmt = $conn->prepare("SELECT * FROM users WHERE `id`={$id}");
+
+            if ($stmt->execute() && $stmt->rowCount() > 0) {
+                return $stmt->fetch(\PDO::FETCH_ASSOC);
             } else {
                 return [
                     "error" => "No Data found"
                 ];
             }
+//
         } catch (\PDOException $e) {
             return [
                 "error" => $e->getMessage()
@@ -155,7 +156,7 @@ class UserController implements UserInterface
             $stmt = $conn->prepare("SELECT * FROM users WHERE 1");
 
             if ($stmt->execute() && $stmt->rowCount() > 0) {
-                return $stmt->fetchAll();
+                return $stmt->fetchAll(\PDO::FETCH_ASSOC);
             } else {
                 return [
                     "error" => "No Data found"

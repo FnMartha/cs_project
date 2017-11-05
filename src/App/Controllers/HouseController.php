@@ -28,8 +28,11 @@ class HouseController implements HouseInterface
         try {
             $db = new DB();
             $conn = $db->connect();
-            $stmt = $conn->prepare("INSERT INTO houses(owned_by, house_category, location, min_price, max_price, image1, image2, image3, image4, image5, status) 
-                    VALUES (:owned_by, :house_category, :location, :min_price, :max_price, :image1, :image2, :image3, :image4, :image5, :status)");
+            $stmt = $conn->prepare("INSERT INTO houses(
+            owned_by,house_category,location,min_price,max_price, image1, image2, 
+            image3, image4,image5,status,lat, lng
+            ) 
+            VALUES (:owned_by, :house_category, :location, :min_price, :max_price, :image1, :image2, :image3, :image4, :image5, :status, :lat, :lng)");
 
             $stmt->bindValue(":owned_by", $house->getOwnedBy());
             $stmt->bindValue(":house_category", $house->getHouseCategory());
@@ -42,11 +45,13 @@ class HouseController implements HouseInterface
             $stmt->bindValue(":image4", $house->getImageFour());
             $stmt->bindValue(":image5", $house->getImageFive());
             $stmt->bindValue(":status", $house->getStatus());
+            $stmt->bindValue(":lat", $house->getLat());
+            $stmt->bindValue(":lng", $house->getLng());
             $created = $stmt->execute();
             if ($created) {
                 return true;
             } else {
-                return ['error' => "Error Occurred. House Owner Not Registered"];
+                return ['error' => $stmt->errorInfo()[2]];
             }
 
         } catch (\PDOException $e) {
@@ -73,7 +78,7 @@ class HouseController implements HouseInterface
                                             image4=:image4, image5=:image5, 
                                             status=:status WHERE id=:id "
             );
-            $stmt->bindParam(":id",$id);
+            $stmt->bindParam(":id", $id);
             $stmt->bindValue(":owned_by", $house->getOwnedBy());
             $stmt->bindValue(":house_category", $house->getHouseCategory());
             $stmt->bindValue(":location", $house->getLocation());
@@ -109,19 +114,19 @@ class HouseController implements HouseInterface
     {
         $db = new DB();
         $conn = $db->connect();
-        try{
+        try {
             $stmt = $conn->prepare("SELECT * FROM houses WHERE id:=id");
             $stmt->bindParam(":id", $id);
-            if($stmt->execute() && $stmt->rowCount() == 1){
-                return $stmt->fetchAll();
-            }else{
+            if ($stmt->execute() && $stmt->rowCount() == 1) {
+                return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            } else {
                 return [
-                    "error"=> "No Data found"
+                    "error" => "No Data found"
                 ];
             }
-        }catch (\PDOException $e){
+        } catch (\PDOException $e) {
             return [
-                "error"=>$e->getMessage()
+                "error" => $e->getMessage()
             ];
         }
     }
@@ -134,20 +139,20 @@ class HouseController implements HouseInterface
     {
         $db = new DB();
         $conn = $db->connect();
-        try{
+        try {
             $stmt = $conn->prepare("DELETE FROM houses WHERE id=:id");
             $stmt->bindParam(":id", $id);
-            if($stmt->execute()){
+            if ($stmt->execute()) {
                 return true;
-            }else{
+            } else {
                 return [
                     "error" => "Error! Failed to delete the house  try again later"
                 ];
 
             }
-        }catch (\PDOException $e){
+        } catch (\PDOException $e) {
             return [
-                "error"=>$e->getMessage()
+                "error" => $e->getMessage()
             ];
         }
     }
@@ -159,19 +164,19 @@ class HouseController implements HouseInterface
     {
         $db = new DB();
         $conn = $db->connect();
-        try{
+        try {
             $stmt = $conn->prepare("SELECT * FROM houses WHERE 1");
 
-            if($stmt->execute() && $stmt->rowCount() > 0){
-                return $stmt->fetchAll();
-            }else{
+            if ($stmt->execute() && $stmt->rowCount() > 0) {
+                return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            } else {
                 return [
-                    "error"=> "No Data found"
+                    "error" => "No Data found"
                 ];
             }
-        }catch (\PDOException $e){
+        } catch (\PDOException $e) {
             return [
-                "error"=>$e->getMessage()
+                "error" => $e->getMessage()
             ];
         }
     }

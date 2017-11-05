@@ -89,8 +89,8 @@ $counter = 1;
                                     <th>#</th>
                                     <th>House Type</th>
                                     <th>Location</th>
-                                    <th>Min Price</th>
-                                    <th>Max Price</th>
+                                    <th>Price</th>
+
                                     <th>Status</th>
                                     <th colspan="1">Actions</th>
 
@@ -103,7 +103,6 @@ $counter = 1;
                                         <td><?php echo $house['house_category']; ?></td>
                                         <td><?php echo $house['location']; ?></td>
                                         <td><?php echo $house['min_price']; ?></td>
-                                        <td><?php echo $house['max_price']; ?></td>
                                         <td><?php echo $house['status']; ?></td>
                                         <td>
                                             <button class="btn btn-danger" onclick="deleteHouse('<?php echo $house['id'] ?>')"> Delete</button>
