@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 25, 2017 at 06:10 PM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 7.0.8
+-- Generation Time: Nov 06, 2017 at 09:01 AM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -46,41 +48,24 @@ CREATE TABLE `houses` (
   `house_category` enum('1_BEDROOM','2_BEDROOM','3_BEDROOM','BEDSEATER','SINGLE_ROOM','DOUBLE_ROOM') NOT NULL,
   `location` varchar(255) NOT NULL,
   `min_price` float NOT NULL,
-  `max_price` float NOT NULL,
+  `max_price` float DEFAULT NULL,
   `image1` varchar(128) DEFAULT NULL,
   `image2` varchar(128) DEFAULT NULL,
   `image3` varchar(128) DEFAULT NULL,
   `image4` varchar(128) DEFAULT NULL,
   `image5` varchar(128) DEFAULT NULL,
-  `status` enum('booked','available') NOT NULL
+  `status` enum('booked','available') NOT NULL,
+  `lat` float DEFAULT NULL,
+  `lng` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `houses`
 --
 
-INSERT INTO `houses` (`id`, `owned_by`, `house_category`, `location`, `min_price`, `max_price`, `image1`, `image2`, `image3`, `image4`, `image5`, `status`) VALUES
-(7, 1, '1_BEDROOM', 'NGONG', 2000, 8000, NULL, NULL, NULL, NULL, NULL, 'available'),
-(8, 2, '1_BEDROOM', 'NGONG', 2000, 8000, NULL, NULL, NULL, NULL, NULL, 'available'),
-(9, 3, '1_BEDROOM', 'NGONG', 2000, 8000, NULL, NULL, NULL, NULL, NULL, 'available'),
-(10, 4, '1_BEDROOM', 'NGONG', 2000, 8000, NULL, NULL, NULL, NULL, NULL, 'available'),
-(11, 0, '1_BEDROOM', 'NGONG', 2000, 8000, NULL, NULL, NULL, NULL, NULL, 'available'),
-(12, 1, '1_BEDROOM', 'NGONG', 2000, 8000, NULL, NULL, NULL, NULL, NULL, 'available'),
-(13, 2, '1_BEDROOM', 'NGONG', 2000, 8000, NULL, NULL, NULL, NULL, NULL, 'available'),
-(14, 3, '1_BEDROOM', 'NGONG', 2000, 8000, NULL, NULL, NULL, NULL, NULL, 'available'),
-(15, 4, '1_BEDROOM', 'NGONG', 2000, 8000, NULL, NULL, NULL, NULL, NULL, 'available'),
-(16, 0, '1_BEDROOM', 'NGONG', 2000, 8000, NULL, NULL, NULL, NULL, NULL, 'available'),
-(17, 1, '1_BEDROOM', 'NGONG', 2000, 8000, NULL, NULL, NULL, NULL, NULL, 'available'),
-(18, 2, '1_BEDROOM', 'NGONG', 2000, 8000, NULL, NULL, NULL, NULL, NULL, 'available'),
-(19, 3, '1_BEDROOM', 'NGONG', 2000, 8000, NULL, NULL, NULL, NULL, NULL, 'available'),
-(20, 4, '1_BEDROOM', 'NGONG', 2000, 8000, NULL, NULL, NULL, NULL, NULL, 'available'),
-(21, 0, '1_BEDROOM', 'NGONG', 2000, 8000, NULL, NULL, NULL, NULL, NULL, 'available'),
-(22, 1, '1_BEDROOM', 'NGONG', 2000, 8000, NULL, NULL, NULL, NULL, NULL, 'available'),
-(23, 2, '1_BEDROOM', 'NGONG', 2000, 8000, NULL, NULL, NULL, NULL, NULL, 'available'),
-(24, 3, '1_BEDROOM', 'NGONG', 2000, 8000, NULL, NULL, NULL, NULL, NULL, 'available'),
-(25, 4, '1_BEDROOM', 'NGONG', 2000, 8000, NULL, NULL, NULL, NULL, NULL, 'available'),
-(26, 24, '1_BEDROOM', 'NGARA NAIROBI', 33, 345, NULL, NULL, NULL, NULL, NULL, 'available'),
-(28, 23, '3_BEDROOM', 'NGONG ROAD', 3000, 4000, NULL, NULL, NULL, NULL, NULL, 'available');
+INSERT INTO `houses` (`id`, `owned_by`, `house_category`, `location`, `min_price`, `max_price`, `image1`, `image2`, `image3`, `image4`, `image5`, `status`, `lat`, `lng`) VALUES
+(40, 27, '2_BEDROOM', 'Dik Dik Gardens, Nairobi, Kenya', 34, NULL, 'uploads/Screenshot_1506078514_2GGKDVX.png', 'uploads/Screenshot_1506078514_4qKL9OD.png', 'uploads/Screenshot_1506078514_20DxXAd.png', 'uploads/Screenshot_1506078514_dt5rKgd.png', 'uploads/Screenshot_1506078514_hlpMShp.png', 'available', -1.27118, 36.7851),
+(41, 27, '2_BEDROOM', 'Nyeri-Nyahururu Rd, King\'ong\'o, Kenya', 3000, NULL, 'uploads/image_4.jpg', NULL, NULL, NULL, NULL, 'available', -0.415763, 36.9617);
 
 -- --------------------------------------------------------
 
@@ -132,8 +117,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `account_type`, `phone_number`) VALUES
-(23, 'esd', 'mail@test.com', '$2y$10$R2JvCdLbVttWNqIvhawdqOkdFFhZTDyT1yNIB6dsbPDORYESXYy7W', 'client', '345'),
-(24, 'errf', 'mail@test.com', '$2y$10$7fYGpP6TNFOyojTpI.q.Y.Gqa.0DvppTLwiz1oC8HjwiDIoCKYEPy', 'admin', '848349394');
+(25, 'Gerald', 'g@gmail.com', '$2y$10$e7yL/dTwN.alpYEAMzIaRuZRfF9J.fz08ch1v5YW3ttr5zlMQNnDC', 'agent', '0789295477'),
+(26, 'frank', 'frank.martha@hotmail.com', '$2y$10$kJJBdC4YOqZzH5lXT4/khexzu6EWVZLmv5egxw2qVicf3LkZ8w0z6', 'admin', '0713752249'),
+(27, 'Nyaga', 'g@yahoo.com', '$2y$10$ODGApNy9SoecYeHaJ35ZyOXqM95GBiv6FLIAfPVPOo9fN8f6rzJaq', 'owner', '0713752249'),
+(28, 'Rey', 'rankibe95@gmail.com', '$2y$10$Q/Ob/J6ebEDB65ZqjOWoZ.fjl8wFkKxWRNpq3jw5kx9EMMWkj1YtO', 'owner', '0704679740'),
+(29, 'MARTHA.FRANK', 'frank.martha@hotmail.com', '$2y$10$pYlG9ZqrfN19zE26AZje8uWXLSyXBxIjibFU8.2XZ5yaeSPEIs6bu', 'agent', '0713752249'),
+(32, 'qwerty', 'qwerty@gmail.com', '$2y$10$nCXqfa1hFjV9VS3.h0t69enqYHI0QSRnnftmgSuY3kfXSEiFwrpaK', 'client', '1234567'),
+(33, 'qer', 'sdfg@erty.com', '$2y$10$4myUZF.vOXh/iy9AC0wtNeFO2wzxLyOxszZgYzmA1MEsyY9ZkKSPO', 'client', '0713752249');
 
 --
 -- Indexes for dumped tables
@@ -174,21 +164,26 @@ ALTER TABLE `users`
 --
 ALTER TABLE `agents`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `houses`
 --
 ALTER TABLE `houses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
 --
 -- AUTO_INCREMENT for table `house_owners`
 --
 ALTER TABLE `house_owners`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
