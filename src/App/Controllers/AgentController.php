@@ -10,6 +10,7 @@ namespace App\Controllers;
 
 
 use App\AppInterface\AgentInterface;
+use App\AppInterface\BaseInterface;
 use App\DBManager\DB;
 use App\Models\Agent;
 
