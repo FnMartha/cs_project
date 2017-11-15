@@ -80,14 +80,14 @@ class PaymentController implements PaymentInterface
         }
     }
 
-    public static function getId($id)
+    public static function getId($txnId)
     {
         $db = new DB();
         $conn = $db->connect();
         try {
 
-            $stmt = $conn->prepare("SELECT t.* FROM  payments t WHERE  t.id=:id");
-
+            $stmt = $conn->prepare("SELECT t.* FROM  payments t WHERE  t.txn_id=:txn_id");
+            $stmt->bindParam(":txn_id", $txnId, \PDO::PARAM_STR);
             if ($stmt->execute() && $stmt->rowCount() == 1) {
                 return $stmt->fetch(\PDO::FETCH_ASSOC);
             } elseif ($stmt->execute() && $stmt->rowCount() > 1) {
